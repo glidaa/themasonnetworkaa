@@ -1,0 +1,33 @@
+.input-container
+    --color-error: #DC3545
+    @apply grid grid-cols-2
+    input, textarea
+        @apply textbox
+    label
+        @apply row-start-1 col-start-1 justify-self-start ml-1 opacity-70
+    .invalid-input
+        border-bottom-color: var(--color-error) !important
+
+    & > small
+        @apply row-start-1 col-start-2 justify-self-end text-[var(--color-error)]
+
+.required
+    &::after
+        content: "*"
+        @apply text-[var(--color-error)] ml-1
+
+.textbox
+    transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out
+    border-width: 1.5px 1.5px 2.3px 1.5px
+    border-style: solid
+    border-color: rgba(0, 0, 0, 0.3)
+    border-bottom-color: rgba(0, 0, 0, 0.5)
+    background-color: rgba(0, 0, 0, 0.04)
+
+    will-change: filter
+    transform: translateZ(0)
+    @apply col-span-2 relative block w-full rounded-[4px] outline-none px-3 py-2
+    @apply text-black backdrop-blur-2xl
+    &:focus
+        border-color: #333333
+        border-bottom-color: #4169e1
